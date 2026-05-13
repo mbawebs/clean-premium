@@ -190,14 +190,15 @@
       box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
     }
 
-  .card-img {
-  height: 420px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-color: #050505;
-  transition: 0.35s ease;
-}
+    .card-img {
+      height: 420px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center top;
+      background-color: #050505;
+      transition: 0.35s ease;
+      cursor: pointer;
+    }
 
     .card-body {
       padding: 24px;
@@ -247,6 +248,7 @@
       background-position: center;
       border: 1px solid rgba(212, 175, 55, 0.25);
       transition: 0.3s ease;
+      cursor: pointer;
     }
 
     .gallery-item:hover {
@@ -280,6 +282,54 @@
       background: rgba(0,0,0,0.9);
     }
 
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.94);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 99999;
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .lightbox.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 22px;
+      border: 1px solid rgba(212,175,55,0.35);
+      box-shadow: 0 0 50px rgba(0,0,0,0.7);
+    }
+
+    .close-lightbox {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 1px solid rgba(212,175,55,0.35);
+      background: rgba(0,0,0,0.7);
+      color: #d4af37;
+      font-size: 1.4rem;
+      cursor: pointer;
+      transition: 0.25s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .close-lightbox:hover {
+      transform: scale(1.08);
+      background: rgba(212,175,55,0.12);
+    }
+
     @media (max-width: 800px) {
       .navbar {
         flex-direction: column;
@@ -298,7 +348,6 @@
         padding: 160px 6% 70px;
         text-align: center;
         justify-content: center;
-        background-position: center;
       }
 
       .buttons {
@@ -310,177 +359,256 @@
 
 <body>
 
-  <header class="navbar">
-    <div class="logo">IRON HOUSE</div>
-    <nav class="nav-links">
-      <a href="#home">Home</a>
-      <a href="#studs">Studs</a>
-      <a href="#females">Females</a>
-      <a href="#forsale">For Sale</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+<header class="navbar">
+  <div class="logo">IRON HOUSE</div>
 
-  <section class="hero" id="home">
-    <div class="hero-content">
-      <div class="eyebrow">Luxury American Bully Kennel</div>
-      <h1>IRON HOUSE BULLIES</h1>
-      <p>
-        Premium compact bullies with powerful structure, clean movement, confident temperament,
-        and elite bloodline presence. Built for those who want more than just a dog — they want a statement.
-      </p>
-      <div class="buttons">
-        <a href="#studs" class="btn gold">View Studs</a>
-        <a href="#forsale" class="btn">Available Puppies</a>
-      </div>
-    </div>
-  </section>
+  <nav class="nav-links">
+    <a href="#home">Home</a>
+    <a href="#studs">Studs</a>
+    <a href="#females">Females</a>
+    <a href="#forsale">For Sale</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-  <section id="studs">
-    <div class="section-header">
-      <span>Elite Males</span>
-      <h2>Studs</h2>
-    </div>
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="eyebrow">Luxury American Bully Kennel</div>
 
-    <div class="grid">
-      <div class="card">
-        <div class="card-img" style="background-image:url('assets/studs/studs.png');"></div>
-        <div class="card-body">
-          <h3>King Titan</h3>
-          <p class="info">Color: Black Tri<br>Bloodline: Elite Exotic<br>Structure: Compact / Heavy Bone</p>
-          <span class="badge">Stud Available</span>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-img" style="background-image:url('assets/studs/studs.png');"></div>
-        <div class="card-body">
-          <h3>Black Caesar</h3>
-          <p class="info">Color: Black Tri<br>Bloodline: Foundation Bully<br>Structure: Wide Chest / Clean Bite</p>
-          <span class="badge">Open For Stud</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="females" class="dark-section">
-    <div class="section-header">
-      <span>Foundation Females</span>
-      <h2>Females</h2>
-    </div>
-
-    <div class="grid">
-      <div class="card">
-        <div class="card-img" style="background-image:url('assets/females/females.png');"></div>
-        <div class="card-body">
-          <h3>Lady Nova</h3>
-          <p class="info">Color: Chocolate Tri<br>Bloodline: Exotic Foundation<br>Temperament: Calm / Confident</p>
-          <span class="badge">Foundation Female</span>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-img" style="background-image:url('assets/females/females.png');"></div>
-        <div class="card-body">
-          <h3>Queen Storm</h3>
-          <p class="info">Color: Blue Tri<br>Bloodline: Compact Bully<br>Traits: Headpiece / Bone / Drive</p>
-          <span class="badge">Future Breeding</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="forsale">
-    <div class="section-header">
-      <span>Available Now</span>
-      <h2>For Sale</h2>
-    </div>
-
-    <div class="grid">
-      <div class="card">
-        <div class="card-img" style="background-image:url('assets/for_sale/for-sale.png');"></div>
-        <div class="card-body">
-          <h3>Male Puppy</h3>
-          <p class="info">Age: 10 Weeks<br>Color: Blue Tri<br>Status: Available</p>
-          <span class="badge">Contact For Price</span>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-img" style="background-image:url('assets/for_sale/for-sale.png');"></div>
-        <div class="card-body">
-          <h3>Female Puppy</h3>
-          <p class="info">Age: 9 Weeks<br>Color: Lilac Merle<br>Status: Available</p>
-          <span class="badge">Reservation Open</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="gallery" class="dark-section">
-    <div class="section-header">
-      <span>Productions & Lifestyle</span>
-      <h2>Gallery</h2>
-    </div>
-
-    <div class="gallery">
-      <div class="gallery-item" style="background-image:url('assets/gallery/gallery-1.png');"></div>
-      <div class="gallery-item" style="background-image:url('assets/gallery/gallery-2.png');"></div>
-      <div class="gallery-item" style="background-image:url('assets/productions/productions-1.png');"></div>
-      <div class="gallery-item" style="background-image:url('assets/productions/productions-2.png');"></div>
-    </div>
-  </section>
-
-  <section id="contact" class="contact">
-    <div class="section-header">
-      <span>Get In Touch</span>
-      <h2>Contact</h2>
-    </div>
+    <h1>IRON HOUSE BULLIES</h1>
 
     <p>
-      Interested in a puppy, stud service, or future breeding? Contact us directly and follow our latest productions.
+      Premium compact bullies with powerful structure, clean movement,
+      confident temperament, and elite bloodline presence.
     </p>
 
     <div class="buttons">
-      <a href="#" class="btn gold">Instagram</a>
-      <a href="#" class="btn">WhatsApp</a>
-      <a href="#" class="btn">Facebook</a>
+      <a href="#studs" class="btn gold">View Studs</a>
+      <a href="#forsale" class="btn">Available Puppies</a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer>
-    © 2026 Iron House Bullies. Luxury kennel website powered by MBA Webs.
-  </footer>
-  <div class="lightbox" id="lightbox">
+<section id="studs">
+  <div class="section-header">
+    <span>Elite Males</span>
+    <h2>Studs</h2>
+  </div>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="card-img"
+        style="background-image:url('assets/studs/studs.png');">
+      </div>
+
+      <div class="card-body">
+        <h3>King Titan</h3>
+
+        <p class="info">
+          Color: Black Tri<br>
+          Bloodline: Elite Exotic<br>
+          Structure: Compact / Heavy Bone
+        </p>
+
+        <span class="badge">Stud Available</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img"
+        style="background-image:url('assets/studs/studs.png');">
+      </div>
+
+      <div class="card-body">
+        <h3>Black Caesar</h3>
+
+        <p class="info">
+          Color: Black Tri<br>
+          Bloodline: Foundation Bully<br>
+          Structure: Wide Chest / Clean Bite
+        </p>
+
+        <span class="badge">Open For Stud</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="females" class="dark-section">
+  <div class="section-header">
+    <span>Foundation Females</span>
+    <h2>Females</h2>
+  </div>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="card-img"
+        style="background-image:url('assets/females/females.png');">
+      </div>
+
+      <div class="card-body">
+        <h3>Lady Nova</h3>
+
+        <p class="info">
+          Color: Chocolate Tri<br>
+          Bloodline: Exotic Foundation<br>
+          Temperament: Calm / Confident
+        </p>
+
+        <span class="badge">Foundation Female</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img"
+        style="background-image:url('assets/females/females.png');">
+      </div>
+
+      <div class="card-body">
+        <h3>Queen Storm</h3>
+
+        <p class="info">
+          Color: Blue Tri<br>
+          Bloodline: Compact Bully<br>
+          Traits: Headpiece / Bone / Drive
+        </p>
+
+        <span class="badge">Future Breeding</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="forsale">
+  <div class="section-header">
+    <span>Available Now</span>
+    <h2>For Sale</h2>
+  </div>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="card-img"
+        style="background-image:url('assets/for_sale/for-sale.png');">
+      </div>
+
+      <div class="card-body">
+        <h3>Male Puppy</h3>
+
+        <p class="info">
+          Age: 10 Weeks<br>
+          Color: Blue Tri<br>
+          Status: Available
+        </p>
+
+        <span class="badge">Contact For Price</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img"
+        style="background-image:url('assets/for_sale/for-sale.png');">
+      </div>
+
+      <div class="card-body">
+        <h3>Female Puppy</h3>
+
+        <p class="info">
+          Age: 9 Weeks<br>
+          Color: Lilac Merle<br>
+          Status: Available
+        </p>
+
+        <span class="badge">Reservation Open</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="gallery" class="dark-section">
+  <div class="section-header">
+    <span>Productions & Lifestyle</span>
+    <h2>Gallery</h2>
+  </div>
+
+  <div class="gallery">
+
+    <div class="gallery-item"
+      style="background-image:url('assets/gallery/gallery-1.png');">
+    </div>
+
+    <div class="gallery-item"
+      style="background-image:url('assets/gallery/gallery-2.png');">
+    </div>
+
+    <div class="gallery-item"
+      style="background-image:url('assets/productions/productions-1.png');">
+    </div>
+
+    <div class="gallery-item"
+      style="background-image:url('assets/productions/productions-2.png');">
+    </div>
+
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="section-header">
+    <span>Get In Touch</span>
+    <h2>Contact</h2>
+  </div>
+
+  <p>
+    Interested in a puppy, stud service, or future breeding?
+    Contact us directly and follow our latest productions.
+  </p>
+
+  <div class="buttons">
+    <a href="#" class="btn gold">Instagram</a>
+    <a href="#" class="btn">WhatsApp</a>
+    <a href="#" class="btn">Facebook</a>
+  </div>
+</section>
+
+<footer>
+  © 2026 Iron House Bullies. Luxury kennel website powered by MBA Webs.
+</footer>
+
+<div class="lightbox" id="lightbox">
   <button class="close-lightbox" id="closeLightbox">✕</button>
   <img src="" id="lightbox-img">
 </div>
 
 <script>
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightbox-img');
-  const closeLightbox = document.getElementById('closeLightbox');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const closeLightbox = document.getElementById('closeLightbox');
 
-  document.querySelectorAll('.card-img, .gallery-item').forEach(item => {
-    item.addEventListener('click', () => {
-      const bg = item.style.backgroundImage;
-      const url = bg.slice(5, -2);
+document.querySelectorAll('.card-img, .gallery-item').forEach(item => {
+  item.addEventListener('click', () => {
+    const bg = item.style.backgroundImage;
+    const url = bg.slice(5, -2);
 
-      lightboxImg.src = url;
-      lightbox.classList.add('active');
-    });
+    lightboxImg.src = url;
+    lightbox.classList.add('active');
   });
+});
 
-  closeLightbox.addEventListener('click', () => {
+closeLightbox.addEventListener('click', () => {
+  lightbox.classList.remove('active');
+});
+
+lightbox.addEventListener('click', (e) => {
+  if (e.target === lightbox) {
     lightbox.classList.remove('active');
-  });
-
-  lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) {
-      lightbox.classList.remove('active');
-    }
-  });
+  }
+});
 </script>
 
 </body>
