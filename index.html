@@ -452,6 +452,36 @@
   <footer>
     © 2026 Iron House Bullies. Luxury kennel website powered by MBA Webs.
   </footer>
+  <div class="lightbox" id="lightbox">
+  <button class="close-lightbox" id="closeLightbox">✕</button>
+  <img src="" id="lightbox-img">
+</div>
+
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const closeLightbox = document.getElementById('closeLightbox');
+
+  document.querySelectorAll('.card-img, .gallery-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const bg = item.style.backgroundImage;
+      const url = bg.slice(5, -2);
+
+      lightboxImg.src = url;
+      lightbox.classList.add('active');
+    });
+  });
+
+  closeLightbox.addEventListener('click', () => {
+    lightbox.classList.remove('active');
+  });
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+      lightbox.classList.remove('active');
+    }
+  });
+</script>
 
 </body>
 </html>
