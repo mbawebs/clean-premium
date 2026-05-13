@@ -31,7 +31,12 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      background: var(--bg);
+      background:
+        linear-gradient(rgba(0,0,0,0.88), rgba(0,0,0,0.94)),
+        url('assets/branding/bg-dark-texture.png');
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
       color: var(--text);
       overflow-x: hidden;
     }
@@ -50,7 +55,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 18px 7%;
-      background: rgba(0, 0, 0, 0.75);
+      background: rgba(0, 0, 0, 0.78);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(212, 175, 55, 0.2);
     }
@@ -80,8 +85,8 @@
       align-items: center;
       padding: 120px 7% 70px;
       background:
-        linear-gradient(to right, rgba(0,0,0,0.95), rgba(0,0,0,0.55)),
-        url('https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=1600&q=80');
+        linear-gradient(to right, rgba(0,0,0,0.95), rgba(0,0,0,0.55), rgba(0,0,0,0.15)),
+        url('assets/hero/hero.png');
       background-size: cover;
       background-position: center;
     }
@@ -223,7 +228,7 @@
     }
 
     .dark-section {
-      background: #0a0a0a;
+      background: rgba(5, 5, 5, 0.82);
     }
 
     .gallery {
@@ -250,7 +255,10 @@
       text-align: center;
       background:
         linear-gradient(rgba(0,0,0,0.88), rgba(0,0,0,0.88)),
-        radial-gradient(circle at center, rgba(212,175,55,0.25), transparent 55%);
+        radial-gradient(circle at center, rgba(212,175,55,0.25), transparent 55%),
+        url('assets/branding/bg-dark-texture.png');
+      background-size: cover;
+      background-position: center;
     }
 
     .contact p {
@@ -266,6 +274,7 @@
       color: var(--muted);
       border-top: 1px solid rgba(212, 175, 55, 0.15);
       font-size: 0.85rem;
+      background: rgba(0,0,0,0.9);
     }
 
     @media (max-width: 800px) {
@@ -286,6 +295,7 @@
         padding: 160px 6% 70px;
         text-align: center;
         justify-content: center;
+        background-position: center;
       }
 
       .buttons {
@@ -332,16 +342,16 @@
 
     <div class="grid">
       <div class="card">
-        <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1583511655826-05700442b31b?auto=format&fit=crop&w=900&q=80');"></div>
+        <div class="card-img" style="background-image:url('assets/studs/studs.png');"></div>
         <div class="card-body">
           <h3>King Titan</h3>
-          <p class="info">Color: Lilac Tri<br>Bloodline: Elite Exotic<br>Structure: Compact / Heavy Bone</p>
+          <p class="info">Color: Black Tri<br>Bloodline: Elite Exotic<br>Structure: Compact / Heavy Bone</p>
           <span class="badge">Stud Available</span>
         </div>
       </div>
 
       <div class="card">
-        <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=900&q=80');"></div>
+        <div class="card-img" style="background-image:url('assets/studs/studs.png');"></div>
         <div class="card-body">
           <h3>Black Caesar</h3>
           <p class="info">Color: Black Tri<br>Bloodline: Foundation Bully<br>Structure: Wide Chest / Clean Bite</p>
@@ -359,7 +369,7 @@
 
     <div class="grid">
       <div class="card">
-        <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=900&q=80');"></div>
+        <div class="card-img" style="background-image:url('assets/females/females.png');"></div>
         <div class="card-body">
           <h3>Lady Nova</h3>
           <p class="info">Color: Chocolate Tri<br>Bloodline: Exotic Foundation<br>Temperament: Calm / Confident</p>
@@ -368,7 +378,7 @@
       </div>
 
       <div class="card">
-        <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1537151625747-768eb6cf92b6?auto=format&fit=crop&w=900&q=80');"></div>
+        <div class="card-img" style="background-image:url('assets/females/females.png');"></div>
         <div class="card-body">
           <h3>Queen Storm</h3>
           <p class="info">Color: Blue Tri<br>Bloodline: Compact Bully<br>Traits: Headpiece / Bone / Drive</p>
@@ -386,7 +396,7 @@
 
     <div class="grid">
       <div class="card">
-        <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1601758124510-52d02ddb7cbd?auto=format&fit=crop&w=900&q=80');"></div>
+        <div class="card-img" style="background-image:url('assets/for_sale/for-sale.png');"></div>
         <div class="card-body">
           <h3>Male Puppy</h3>
           <p class="info">Age: 10 Weeks<br>Color: Blue Tri<br>Status: Available</p>
@@ -395,7 +405,7 @@
       </div>
 
       <div class="card">
-        <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1601758174114-e711c0cbaa69?auto=format&fit=crop&w=900&q=80');"></div>
+        <div class="card-img" style="background-image:url('assets/for_sale/for-sale.png');"></div>
         <div class="card-body">
           <h3>Female Puppy</h3>
           <p class="info">Age: 9 Weeks<br>Color: Lilac Merle<br>Status: Available</p>
@@ -412,10 +422,10 @@
     </div>
 
     <div class="gallery">
-      <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=900&q=80');"></div>
-      <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=900&q=80');"></div>
-      <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=900&q=80');"></div>
-      <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1530281700549-e82e7bf110d6?auto=format&fit=crop&w=900&q=80');"></div>
+      <div class="gallery-item" style="background-image:url('assets/gallery/gallery-1.png');"></div>
+      <div class="gallery-item" style="background-image:url('assets/gallery/gallery-2.png');"></div>
+      <div class="gallery-item" style="background-image:url('assets/productions/productions-1.png');"></div>
+      <div class="gallery-item" style="background-image:url('assets/productions/productions-2.png');"></div>
     </div>
   </section>
 
